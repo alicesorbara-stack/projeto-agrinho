@@ -1,21 +1,21 @@
-function curiosidade(){
+function mostrarCuriosidade(){
 
   const curiosidades = [
 
-    "🌱 A IA pode reduzir desperdícios de água em até 30%.",
+    "🌱 A IA pode reduzir desperdícios de água.",
 
-    "🚜 Drones conseguem detectar pragas antes mesmo do agricultor perceber.",
+    "🚜 Drones conseguem detectar pragas rapidamente.",
 
-    "📡 Sensores inteligentes monitoram a saúde do solo em tempo real.",
+    "📡 Sensores monitoram o solo em tempo real.",
 
-    "☀️ Painéis solares já são usados em fazendas sustentáveis.",
+    "☀️ Fazendas usam energia solar para reduzir impactos ambientais.",
 
-    "🤖 Robôs agrícolas ajudam na colheita e reduzem impactos ambientais."
+    "🤖 Robôs agrícolas ajudam na colheita sustentável."
 
   ];
 
-  let sorteio =
+  const sorteio =
   curiosidades[Math.floor(Math.random() * curiosidades.length)];
 
-  document.getElementById("resposta").innerHTML = sorteio;
+  document.getElementById("resultado").innerHTML = sorteio;
 }
