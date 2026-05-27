@@ -1,6 +1,6 @@
 body{
   margin:0;
-  font-family:Arial;
+  font-family:Arial, Helvetica, sans-serif;
   background:#f4f4f4;
 }
 
@@ -11,38 +11,15 @@ header{
   padding:30px;
 }
 
-nav{
-  background:#1b5e20;
-  padding:15px;
-  text-align:center;
-}
-
-nav a{
-  color:white;
-  margin:15px;
-  text-decoration:none;
-  font-weight:bold;
-}
-
 .banner{
-  background:url('https://images.unsplash.com/photo-1464226184884-fa280b87c399');
-  background-size:cover;
-  height:400px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  background:#388e3c;
   color:white;
-  font-size:35px;
+  text-align:center;
+  padding:80px 20px;
 }
 
-section{
+.conteudo{
   padding:40px;
-}
-
-img{
-  width:100%;
-  max-width:700px;
-  border-radius:10px;
 }
 
 .cards{
@@ -57,41 +34,65 @@ img{
   border-radius:10px;
   flex:1;
   min-width:250px;
-  text-align:center;
   box-shadow:0 0 10px rgba(0,0,0,0.1);
 }
 
-.card i{
-  font-size:50px;
-  color:green;
+.imagem{
+  text-align:center;
+  padding:40px;
 }
 
-.artigo{
-  background:white;
-  padding:20px;
-  margin:20px 0;
-  border-left:5px solid green;
-}
-
-iframe{
-  width:100%;
+.imagem img{
+  width:80%;
   max-width:700px;
   border-radius:10px;
 }
 
-.chat{
+.video{
+  text-align:center;
+  padding:40px;
+}
+
+iframe{
+  width:80%;
+  max-width:700px;
+  height:400px;
+}
+
+.artigos{
+  padding:40px;
+}
+
+.texto{
   background:white;
   padding:20px;
-  border-radius:10px;
+  margin-top:20px;
+  border-left:5px solid green;
+}
+
+.ia{
+  padding:40px;
+  text-align:center;
 }
 
 button{
   background:green;
   color:white;
   border:none;
-  padding:15px;
+  padding:15px 20px;
+  font-size:16px;
   border-radius:5px;
   cursor:pointer;
+}
+
+button:hover{
+  background:#1b5e20;
+}
+
+#resultado{
+  margin-top:20px;
+  font-size:20px;
+  color:#2e7d32;
 }
 
 footer{
@@ -99,4 +100,5 @@ footer{
   color:white;
   text-align:center;
   padding:20px;
+  margin-top:40px;
 }
