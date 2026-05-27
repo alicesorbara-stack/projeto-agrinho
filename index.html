@@ -1,76 +1,49 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agrinho 2026 - Sustentabilidade no Agro</title>
+
+  <title>Agrinho 2026</title>
 
   <link rel="stylesheet" href="style.css">
-
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
 </head>
 
 <body>
 
 <header>
-  <h1>🌱 Sustentabilidade e Tecnologia no Agro</h1>
-  <p>Projeto Agrinho 2026</p>
+  <h1>🌱 Sustentabilidade no Agro</h1>
+  <p>Tecnologia e inovação no campo</p>
 </header>
 
-<nav>
-  <a href="#sobre">Sobre</a>
-  <a href="#tecnologia">Tecnologias</a>
-  <a href="#artigos">Artigos</a>
-  <a href="#videos">Vídeos</a>
-  <a href="#ia">IA Agro</a>
-</nav>
-
 <section class="banner">
-  <h2>O Futuro do Campo é Sustentável</h2>
+  <h2>O Futuro do Agro é Sustentável</h2>
 </section>
 
-<section id="sobre">
-  <h2>🌿 Sustentabilidade no Agro</h2>
+<section class="conteudo">
 
-  <p>
-    A sustentabilidade no agronegócio busca produzir alimentos
-    preservando o meio ambiente, economizando água e reduzindo impactos ambientais.
-  </p>
-
-  <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854"
-  alt="Agricultura sustentável">
-
-</section>
-
-<section id="tecnologia">
-
-  <h2>🚜 Tecnologias Inovadoras</h2>
+  <h2>🚜 Tecnologias no Agro</h2>
 
   <div class="cards">
 
     <div class="card">
-      <i class="fa-solid fa-drone"></i>
       <h3>Drones</h3>
       <p>
-        Monitoram plantações e detectam pragas rapidamente.
+        Os drones ajudam a monitorar plantações e detectar pragas.
       </p>
     </div>
 
     <div class="card">
-      <i class="fa-solid fa-robot"></i>
       <h3>Inteligência Artificial</h3>
       <p>
-        Analisa dados agrícolas e ajuda na tomada de decisões.
+        A IA ajuda produtores a economizar água e aumentar a produtividade.
       </p>
     </div>
 
     <div class="card">
-      <i class="fa-solid fa-satellite"></i>
-      <h3>Sensores e Satélites</h3>
+      <h3>Sensores</h3>
       <p>
-        Acompanham umidade, clima e saúde do solo.
+        Sensores analisam a umidade do solo em tempo real.
       </p>
     </div>
 
@@ -78,54 +51,63 @@
 
 </section>
 
-<section id="artigos">
+<section class="imagem">
+
+  <h2>🌿 Agricultura Sustentável</h2>
+
+  <img
+  src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1200"
+  alt="Agro sustentável">
+
+</section>
+
+<section class="video">
+
+  <h2>🎥 Vídeo Sobre Tecnologia no Agro</h2>
+
+  <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/2zToEPpFEN8"
+    title="YouTube video player"
+    frameborder="0"
+    allowfullscreen>
+  </iframe>
+
+</section>
+
+<section class="artigos">
 
   <h2>📚 Informações Científicas</h2>
 
-  <div class="artigo">
+  <div class="texto">
     <p>
-      “Tecnologias digitais emergem como grandes aliadas para o desenvolvimento sustentável da agricultura.”
+      “Tecnologias digitais ajudam no desenvolvimento sustentável da agricultura.”
     </p>
   </div>
 
-  <div class="artigo">
+  <div class="texto">
     <p>
-      “A Inteligência Artificial possibilita o uso racional de insumos, promovendo maior produtividade.”
+      “A Inteligência Artificial reduz desperdícios e melhora a produção agrícola.”
     </p>
   </div>
 
 </section>
 
-<section id="videos">
+<section class="ia">
 
-  <h2>🎥 Vídeos Sobre Tecnologia no Agro</h2>
+  <h2>🤖 Curiosidades da IA no Agro</h2>
 
-  <iframe width="560" height="315"
-  src="https://www.youtube.com/embed/mD4n8P6t7jw"
-  title="YouTube video player"
-  frameborder="0"
-  allowfullscreen></iframe>
+  <button onclick="mostrarCuriosidade()">
+    Mostrar Curiosidade
+  </button>
 
-</section>
-
-<section id="ia">
-
-  <h2>🤖 IA Agro - Curiosidades</h2>
-
-  <div class="chat">
-
-    <button onclick="curiosidade()">
-      Gerar Curiosidade
-    </button>
-
-    <p id="resposta"></p>
-
-  </div>
+  <p id="resultado"></p>
 
 </section>
 
 <footer>
-  <p>Projeto desenvolvido para o Concurso Agrinho 2026</p>
+  <p>Projeto Agrinho 2026</p>
 </footer>
 
 <script src="script.js"></script>
