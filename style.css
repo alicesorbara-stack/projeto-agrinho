@@ -1,0 +1,102 @@
+body{
+  margin:0;
+  font-family:Arial;
+  background:#f4f4f4;
+}
+
+header{
+  background:#2e7d32;
+  color:white;
+  text-align:center;
+  padding:30px;
+}
+
+nav{
+  background:#1b5e20;
+  padding:15px;
+  text-align:center;
+}
+
+nav a{
+  color:white;
+  margin:15px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.banner{
+  background:url('https://images.unsplash.com/photo-1464226184884-fa280b87c399');
+  background-size:cover;
+  height:400px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:35px;
+}
+
+section{
+  padding:40px;
+}
+
+img{
+  width:100%;
+  max-width:700px;
+  border-radius:10px;
+}
+
+.cards{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.card{
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  flex:1;
+  min-width:250px;
+  text-align:center;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.card i{
+  font-size:50px;
+  color:green;
+}
+
+.artigo{
+  background:white;
+  padding:20px;
+  margin:20px 0;
+  border-left:5px solid green;
+}
+
+iframe{
+  width:100%;
+  max-width:700px;
+  border-radius:10px;
+}
+
+.chat{
+  background:white;
+  padding:20px;
+  border-radius:10px;
+}
+
+button{
+  background:green;
+  color:white;
+  border:none;
+  padding:15px;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+footer{
+  background:#1b5e20;
+  color:white;
+  text-align:center;
+  padding:20px;
+}
