@@ -246,3 +246,43 @@ height:300px;
 }
 
 }
+.curiosidade-box{
+margin-bottom:20px;
+}
+
+.accordion{
+background:#11261a;
+color:white;
+cursor:pointer;
+padding:20px;
+width:100%;
+border:none;
+text-align:left;
+font-size:20px;
+border-radius:15px;
+transition:0.3s;
+font-family:'Poppins',sans-serif;
+}
+
+.accordion:hover{
+background:#1c3b28;
+}
+
+.painel{
+padding:0 20px;
+background:#0d1f15;
+max-height:0;
+overflow:hidden;
+transition:max-height 0.4s ease;
+border-radius:0 0 15px 15px;
+}
+
+.painel p,
+.painel h4{
+margin:20px 0;
+line-height:1.7;
+}
+
+.painel h4{
+color:#7CFC00;
+}
