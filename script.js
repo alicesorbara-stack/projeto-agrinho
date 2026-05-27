@@ -1,21 +1,30 @@
-function mostrarCuriosidade(){
+function gerarCuriosidade(){
 
-  const curiosidades = [
+const curiosidades = [
 
-    "🌱 A IA pode reduzir desperdícios de água.",
+"🌱 A agricultura de precisão pode economizar até 30% de água.",
 
-    "🚜 Drones conseguem detectar pragas rapidamente.",
+"🚁 Drones agrícolas conseguem identificar pragas antes que elas se espalhem.",
 
-    "📡 Sensores monitoram o solo em tempo real.",
+"🤖 Sistemas de IA ajudam agricultores a prever mudanças climáticas.",
 
-    "☀️ Fazendas usam energia solar para reduzir impactos ambientais.",
+"📡 Sensores inteligentes monitoram nutrientes do solo em tempo real.",
 
-    "🤖 Robôs agrícolas ajudam na colheita sustentável."
+"☀️ Fazendas sustentáveis utilizam energia solar para reduzir impactos ambientais.",
 
-  ];
+"🚜 Máquinas modernas utilizam GPS para evitar desperdício de sementes.",
 
-  const sorteio =
-  curiosidades[Math.floor(Math.random() * curiosidades.length)];
+"🌍 Tecnologias agrícolas ajudam a produzir mais alimentos usando menos recursos naturais.",
 
-  document.getElementById("resultado").innerHTML = sorteio;
+"💧 Sistemas inteligentes de irrigação reduzem o desperdício de água no campo.",
+
+"🌾 A IA ajuda a identificar doenças em plantações usando imagens captadas por drones."
+
+];
+
+const sorteio =
+curiosidades[Math.floor(Math.random() * curiosidades.length)];
+
+document.getElementById("resultado").innerHTML = sorteio;
+
 }
