@@ -1,66 +1,95 @@
-// ================================
+```javascript
 // MENU MOBILE
-// ================================
 
 const menuMobile = document.querySelector(".menu-mobile");
 const navLinks = document.querySelector(".nav-links");
 
-menuMobile.addEventListener("click", () => {
+if(menuMobile){
 
-    navLinks.classList.toggle("active");
+menuMobile.addEventListener("click",()=>{
 
-    menuMobile.classList.toggle("active");
+navLinks.classList.toggle("active");
+menuMobile.classList.toggle("active");
 
 });
 
-// Fechar menu ao clicar em um link
+}
+
+// FECHAR MENU AO CLICAR
 
 document.querySelectorAll(".nav-links a")
-.forEach(link => {
+.forEach(link=>{
 
-    link.addEventListener("click", () => {
+link.addEventListener("click",()=>{
 
-        navLinks.classList.remove("active");
-        menuMobile.classList.remove("active");
-
-    });
+navLinks.classList.remove("active");
 
 });
 
-// ================================
+});
+
 // ACCORDION
-// ================================
 
 const accordions =
 document.querySelectorAll(".accordion");
 
-accordions.forEach(btn => {
+accordions.forEach(btn=>{
 
-    btn.addEventListener("click", () => {
+btn.addEventListener("click",()=>{
 
-        btn.classList.toggle("ativo");
+btn.classList.toggle("ativo");
 
-        const painel =
-        btn.nextElementSibling;
+const painel =
+btn.nextElementSibling;
 
-        if(painel.style.maxHeight){
+if(painel.style.maxHeight){
 
-            painel.style.maxHeight = null;
+painel.style.maxHeight = null;
 
-        }else{
+}else{
 
-            painel.style.maxHeight =
-            painel.scrollHeight + "px";
+painel.style.maxHeight =
+painel.scrollHeight + "px";
 
-        }
-
-    });
+}
 
 });
 
-// ================================
-// CONTADORES ANIMADOS
-// ================================
+});
+
+// REVEAL AO ROLAR
+
+const reveals =
+document.querySelectorAll(".reveal");
+
+function revealScroll(){
+
+reveals.forEach(section=>{
+
+const windowHeight =
+window.innerHeight;
+
+const sectionTop =
+section.getBoundingClientRect().top;
+
+const visible = 120;
+
+if(sectionTop < windowHeight - visible){
+
+section.classList.add("active");
+
+}
+
+});
+
+}
+
+window.addEventListener("scroll",
+revealScroll);
+
+revealScroll();
+
+// CONTADORES
 
 const counters =
 document.querySelectorAll(".contador");
@@ -69,279 +98,233 @@ let contadorExecutado = false;
 
 function iniciarContadores(){
 
-    if(contadorExecutado) return;
+if(contadorExecutado) return;
 
-    contadorExecutado = true;
+contadorExecutado = true;
 
-    counters.forEach(counter => {
+counters.forEach(counter=>{
 
-        const target =
-        +counter.dataset.target;
+const target =
++counter.dataset.target;
 
-        let current = 0;
+let current = 0;
 
-        const increment =
-        target / 80;
+const increment =
+target / 80;
 
-        const updateCounter = () => {
+const updateCounter = ()=>{
 
-            current += increment;
+current += increment;
 
-            if(current < target){
+if(current < target){
 
-                counter.innerText =
-                Math.floor(current);
+counter.innerText =
+Math.floor(current);
 
-                requestAnimationFrame(updateCounter);
+requestAnimationFrame(updateCounter);
 
-            }else{
+}else{
 
-                counter.innerText =
-                target + "%";
-
-            }
-
-        };
-
-        updateCounter();
-
-    });
+counter.innerText =
+target + "%";
 
 }
 
-// ================================
-// REVEAL AO ROLAR
-// ================================
+};
 
-const reveals =
-document.querySelectorAll(".reveal");
+updateCounter();
 
-function revealScroll(){
-
-    reveals.forEach(section => {
-
-        const windowHeight =
-        window.innerHeight;
-
-        const sectionTop =
-        section.getBoundingClientRect().top;
-
-        const visible =
-        120;
-
-        if(sectionTop < windowHeight - visible){
-
-            section.classList.add("active");
-
-        }
-
-    });
+});
 
 }
 
-window.addEventListener("scroll", revealScroll);
-
-revealScroll();
-
-// ================================
-// CONTADOR OBSERVER
-// ================================
+// OBSERVER
 
 const dados =
-document.querySelector("#dados");
+document.querySelector("#graficos");
+
+if(dados){
 
 const observer =
-new IntersectionObserver(entries => {
+new IntersectionObserver(entries=>{
 
-    entries.forEach(entry => {
+entries.forEach(entry=>{
 
-        if(entry.isIntersecting){
+if(entry.isIntersecting){
 
-            iniciarContadores();
+iniciarContadores();
 
-        }
+}
 
-    });
+});
 
 },{
-    threshold:0.4
+threshold:0.4
 });
 
 observer.observe(dados);
 
-// ================================
-// BOTÃO VOLTAR AO TOPO
-// ================================
+}
+
+// BOTÃO TOPO
 
 const topo =
 document.getElementById("topo");
 
-window.addEventListener("scroll", () => {
+window.addEventListener("scroll",()=>{
 
-    if(window.scrollY > 400){
+if(window.scrollY > 400){
 
-        topo.style.display = "flex";
+topo.style.display = "flex";
 
-    }else{
+}else{
 
-        topo.style.display = "none";
+topo.style.display = "none";
 
-    }
-
-});
-
-topo.addEventListener("click", () => {
-
-    window.scrollTo({
-
-        top:0,
-        behavior:"smooth"
-
-    });
+}
 
 });
 
-// ================================
-// NAVBAR INTELIGENTE
-// ================================
+topo.addEventListener("click",()=>{
 
-const navbar =
-document.querySelector(".navbar");
+window.scrollTo({
 
-window.addEventListener("scroll", () => {
-
-    if(window.scrollY > 80){
-
-        navbar.style.padding =
-        "12px 8%";
-
-        navbar.style.background =
-        "rgba(0,0,0,.75)";
-
-    }else{
-
-        navbar.style.padding =
-        "20px 8%";
-
-        navbar.style.background =
-        "rgba(0,0,0,.35)";
-
-    }
+top:0,
+behavior:"smooth"
 
 });
 
-// ================================
+});
+
+// BARRA DE PROGRESSO
+
+window.addEventListener("scroll",()=>{
+
+const winScroll =
+document.documentElement.scrollTop;
+
+const height =
+document.documentElement.scrollHeight -
+document.documentElement.clientHeight;
+
+const scrolled =
+(winScroll / height) * 100;
+
+document.getElementById("progress-bar")
+.style.width =
+scrolled + "%";
+
+});
+
+// GRÁFICO
+
+const ctx =
+document.getElementById("grafico");
+
+if(ctx){
+
+new Chart(ctx,{
+
+type:"bar",
+
+data:{
+
+labels:[
+"Economia de Água",
+"Eficiência",
+"Precisão"
+],
+
+datasets:[{
+
+label:"Resultados (%)",
+
+data:[
+30,
+70,
+95
+]
+
+}]
+
+},
+
+options:{
+
+responsive:true,
+
+plugins:{
+
+legend:{
+display:false
+}
+
+}
+
+}
+
+});
+
+}
+
 // EFEITO PARALLAX
-// ================================
 
-window.addEventListener("scroll", () => {
+window.addEventListener("scroll",()=>{
 
-    const scroll =
-    window.pageYOffset;
+const hero =
+document.querySelector("header");
 
-    const hero =
-    document.querySelector("header");
+if(hero){
 
-    hero.style.backgroundPositionY =
-    scroll * 0.4 + "px";
+hero.style.backgroundPositionY =
+window.pageYOffset * 0.4 + "px";
+
+}
 
 });
 
-// ================================
-// HOVER 3D NOS CARDS
-// ================================
+// HOVER NOS CARDS
 
 const cards =
 document.querySelectorAll(".card");
 
-cards.forEach(card => {
+cards.forEach(card=>{
 
-    card.addEventListener("mousemove", (e) => {
+card.addEventListener("mousemove",(e)=>{
 
-        const rect =
-        card.getBoundingClientRect();
+const rect =
+card.getBoundingClientRect();
 
-        const x =
-        e.clientX - rect.left;
+const x =
+e.clientX - rect.left;
 
-        const y =
-        e.clientY - rect.top;
+const y =
+e.clientY - rect.top;
 
-        const rotateY =
-        ((x / rect.width) - 0.5) * 12;
+const rotateY =
+((x / rect.width)-0.5)*10;
 
-        const rotateX =
-        ((y / rect.height) - 0.5) * -12;
+const rotateX =
+((y / rect.height)-0.5)*-10;
 
-        card.style.transform =
-        `perspective(1000px)
-        rotateX(${rotateX}deg)
-        rotateY(${rotateY}deg)
-        translateY(-8px)`;
-
-    });
-
-    card.addEventListener("mouseleave", () => {
-
-        card.style.transform =
-        "perspective(1000px) rotateX(0) rotateY(0)";
-
-    });
+card.style.transform =
+`perspective(1000px)
+rotateX(${rotateX}deg)
+rotateY(${rotateY}deg)
+translateY(-8px)`;
 
 });
 
-// ================================
-// IMAGENS COM ZOOM SUAVE
-// ================================
+card.addEventListener("mouseleave",()=>{
 
-const imagens =
-document.querySelectorAll(".imagens img");
-
-imagens.forEach(img => {
-
-    img.addEventListener("mouseenter", () => {
-
-        img.style.transform =
-        "scale(1.08)";
-
-    });
-
-    img.addEventListener("mouseleave", () => {
-
-        img.style.transform =
-        "scale(1)";
-
-    });
+card.style.transform =
+"perspective(1000px) rotateX(0) rotateY(0)";
 
 });
 
-// ================================
-// ANO AUTOMÁTICO NO FOOTER
-// ================================
-
-const footer =
-document.querySelector("footer p");
-
-if(footer){
-
-    footer.innerHTML =
-    `Projeto desenvolvido para o Concurso Agrinho ${new Date().getFullYear()}`;
-
-}
-
-// ================================
-// LOADING DA PÁGINA
-// ================================
-
-window.addEventListener("load", () => {
-
-    document.body.classList.add("loaded");
-
 });
 
-// ================================
 // CONSOLE
-// ================================
 
 console.log(
 "%c🌱 Agro Sustentável - Agrinho 2026",
@@ -349,6 +332,7 @@ console.log(
 );
 
 console.log(
-"%cSite otimizado e carregado com sucesso.",
+"%cProjeto desenvolvido por Alice Sorbara",
 "color:#4CAF50;"
 );
+```
