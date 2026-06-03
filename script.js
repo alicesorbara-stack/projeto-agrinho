@@ -1,86 +1,99 @@
-```javascript
+// ===================================
+// AGRO SUSTENTÁVEL - AGRINHO 2026
+// Alice Sorbara
+// ===================================
+
+// ================================
 // MENU MOBILE
+// ================================
 
 const menuMobile = document.querySelector(".menu-mobile");
 const navLinks = document.querySelector(".nav-links");
 
-if(menuMobile){
+if (menuMobile && navLinks) {
 
-menuMobile.addEventListener("click",()=>{
+    menuMobile.addEventListener("click", () => {
 
-navLinks.classList.toggle("active");
-menuMobile.classList.toggle("active");
+        navLinks.classList.toggle("active");
+        menuMobile.classList.toggle("active");
 
-});
+    });
 
 }
 
-// FECHAR MENU AO CLICAR
+// Fechar menu ao clicar em um link
 
 document.querySelectorAll(".nav-links a")
-.forEach(link=>{
+.forEach(link => {
 
-link.addEventListener("click",()=>{
+    link.addEventListener("click", () => {
 
-navLinks.classList.remove("active");
+        navLinks?.classList.remove("active");
+        menuMobile?.classList.remove("active");
+
+    });
 
 });
 
-});
-
+// ================================
 // ACCORDION
+// ================================
 
 const accordions =
 document.querySelectorAll(".accordion");
 
-accordions.forEach(btn=>{
+accordions.forEach(btn => {
 
-btn.addEventListener("click",()=>{
+    btn.addEventListener("click", () => {
 
-btn.classList.toggle("ativo");
+        btn.classList.toggle("ativo");
 
-const painel =
-btn.nextElementSibling;
+        const painel =
+        btn.nextElementSibling;
 
-if(painel.style.maxHeight){
+        if (!painel) return;
 
-painel.style.maxHeight = null;
+        if (painel.style.maxHeight) {
 
-}else{
+            painel.style.maxHeight = null;
 
-painel.style.maxHeight =
-painel.scrollHeight + "px";
+        } else {
 
-}
+            painel.style.maxHeight =
+            painel.scrollHeight + "px";
+
+        }
+
+    });
 
 });
 
-});
-
+// ================================
 // REVEAL AO ROLAR
+// ================================
 
 const reveals =
 document.querySelectorAll(".reveal");
 
-function revealScroll(){
+function revealScroll() {
 
-reveals.forEach(section=>{
+    reveals.forEach(section => {
 
-const windowHeight =
-window.innerHeight;
+        const windowHeight =
+        window.innerHeight;
 
-const sectionTop =
-section.getBoundingClientRect().top;
+        const sectionTop =
+        section.getBoundingClientRect().top;
 
-const visible = 120;
+        const visible = 120;
 
-if(sectionTop < windowHeight - visible){
+        if (sectionTop < windowHeight - visible) {
 
-section.classList.add("active");
+            section.classList.add("active");
 
-}
+        }
 
-});
+    });
 
 }
 
@@ -89,242 +102,342 @@ revealScroll);
 
 revealScroll();
 
-// CONTADORES
+// ================================
+// CONTADORES ANIMADOS
+// ================================
 
 const counters =
 document.querySelectorAll(".contador");
 
 let contadorExecutado = false;
 
-function iniciarContadores(){
+function iniciarContadores() {
 
-if(contadorExecutado) return;
+    if (contadorExecutado) return;
 
-contadorExecutado = true;
+    contadorExecutado = true;
 
-counters.forEach(counter=>{
+    counters.forEach(counter => {
 
-const target =
-+counter.dataset.target;
+        const target =
+        parseFloat(counter.dataset.target);
 
-let current = 0;
+        let current = 0;
 
-const increment =
-target / 80;
+        const increment =
+        target / 80;
 
-const updateCounter = ()=>{
+        const updateCounter = () => {
 
-current += increment;
+            current += increment;
 
-if(current < target){
+            if (current < target) {
 
-counter.innerText =
-Math.floor(current);
+                if (target % 1 !== 0) {
 
-requestAnimationFrame(updateCounter);
+                    counter.innerText =
+                    current.toFixed(1);
 
-}else{
+                } else {
 
-counter.innerText =
-target + "%";
+                    counter.innerText =
+                    Math.floor(current);
+
+                }
+
+                requestAnimationFrame(updateCounter);
+
+            } else {
+
+                counter.innerText =
+                target + "%";
+
+            }
+
+        };
+
+        updateCounter();
+
+    });
 
 }
 
-};
-
-updateCounter();
-
-});
-
-}
-
-// OBSERVER
+// ================================
+// OBSERVER DOS CONTADORES
+// ================================
 
 const dados =
-document.querySelector("#graficos");
+document.querySelector("#dados");
 
-if(dados){
+if (dados) {
 
-const observer =
-new IntersectionObserver(entries=>{
+    const observer =
+    new IntersectionObserver(entries => {
 
-entries.forEach(entry=>{
+        entries.forEach(entry => {
 
-if(entry.isIntersecting){
+            if (entry.isIntersecting) {
 
-iniciarContadores();
+                iniciarContadores();
+
+            }
+
+        });
+
+    }, {
+        threshold: 0.4
+    });
+
+    observer.observe(dados);
 
 }
 
-});
-
-},{
-threshold:0.4
-});
-
-observer.observe(dados);
-
-}
-
+// ================================
 // BOTÃO TOPO
+// ================================
 
 const topo =
 document.getElementById("topo");
 
-window.addEventListener("scroll",()=>{
+window.addEventListener("scroll", () => {
 
-if(window.scrollY > 400){
+    if (!topo) return;
 
-topo.style.display = "flex";
+    if (window.scrollY > 400) {
 
-}else{
+        topo.style.display = "flex";
 
-topo.style.display = "none";
+    } else {
 
-}
+        topo.style.display = "none";
 
-});
-
-topo.addEventListener("click",()=>{
-
-window.scrollTo({
-
-top:0,
-behavior:"smooth"
+    }
 
 });
 
+topo?.addEventListener("click", () => {
+
+    window.scrollTo({
+
+        top: 0,
+        behavior: "smooth"
+
+    });
+
 });
 
+// ================================
 // BARRA DE PROGRESSO
+// ================================
 
-window.addEventListener("scroll",()=>{
+const progressBar =
+document.getElementById("progress-bar");
 
-const winScroll =
-document.documentElement.scrollTop;
+window.addEventListener("scroll", () => {
 
-const height =
-document.documentElement.scrollHeight -
-document.documentElement.clientHeight;
+    if (!progressBar) return;
 
-const scrolled =
-(winScroll / height) * 100;
+    const winScroll =
+    document.documentElement.scrollTop;
 
-document.getElementById("progress-bar")
-.style.width =
-scrolled + "%";
+    const height =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
+
+    const scrolled =
+    (winScroll / height) * 100;
+
+    progressBar.style.width =
+    scrolled + "%";
 
 });
 
-// GRÁFICO
+// ================================
+// GRÁFICO CHART.JS
+// ================================
 
 const ctx =
 document.getElementById("grafico");
 
-if(ctx){
+if (ctx && typeof Chart !== "undefined") {
 
-new Chart(ctx,{
+    new Chart(ctx, {
 
-type:"bar",
+        type: "bar",
 
-data:{
+        data: {
 
-labels:[
-"Economia de Água",
-"Eficiência",
-"Precisão"
-],
+            labels: [
 
-datasets:[{
+                "Estabelecimentos Familiares",
+                "Produção de Mandioca",
+                "Produção de Feijão",
+                "Produção de Leite"
 
-label:"Resultados (%)",
+            ],
 
-data:[
-30,
-70,
-95
-]
+            datasets: [{
 
-}]
+                label: "Percentual (%)",
 
-},
+                data: [
 
-options:{
+                    84.4,
+                    87,
+                    70,
+                    58
 
-responsive:true,
+                ],
 
-plugins:{
+                borderWidth: 1
 
-legend:{
-display:false
+            }]
+
+        },
+
+        options: {
+
+            responsive: true,
+
+            plugins: {
+
+                legend: {
+
+                    display: false
+
+                }
+
+            },
+
+            scales: {
+
+                y: {
+
+                    beginAtZero: true,
+                    max: 100
+
+                }
+
+            }
+
+        }
+
+    });
+
 }
 
-}
+// ================================
+// PARALLAX HERO
+// ================================
 
-}
+window.addEventListener("scroll", () => {
+
+    const hero =
+    document.querySelector("header");
+
+    if (!hero) return;
+
+    hero.style.backgroundPositionY =
+    window.pageYOffset * 0.4 + "px";
 
 });
 
-}
-
-// EFEITO PARALLAX
-
-window.addEventListener("scroll",()=>{
-
-const hero =
-document.querySelector("header");
-
-if(hero){
-
-hero.style.backgroundPositionY =
-window.pageYOffset * 0.4 + "px";
-
-}
-
-});
-
-// HOVER NOS CARDS
+// ================================
+// EFEITO 3D NOS CARDS
+// ================================
 
 const cards =
 document.querySelectorAll(".card");
 
-cards.forEach(card=>{
+cards.forEach(card => {
 
-card.addEventListener("mousemove",(e)=>{
+    card.addEventListener("mousemove", (e) => {
 
-const rect =
-card.getBoundingClientRect();
+        const rect =
+        card.getBoundingClientRect();
 
-const x =
-e.clientX - rect.left;
+        const x =
+        e.clientX - rect.left;
 
-const y =
-e.clientY - rect.top;
+        const y =
+        e.clientY - rect.top;
 
-const rotateY =
-((x / rect.width)-0.5)*10;
+        const rotateY =
+        ((x / rect.width) - 0.5) * 10;
 
-const rotateX =
-((y / rect.height)-0.5)*-10;
+        const rotateX =
+        ((y / rect.height) - 0.5) * -10;
 
-card.style.transform =
-`perspective(1000px)
-rotateX(${rotateX}deg)
-rotateY(${rotateY}deg)
-translateY(-8px)`;
+        card.style.transform =
+        `perspective(1000px)
+        rotateX(${rotateX}deg)
+        rotateY(${rotateY}deg)
+        translateY(-8px)`;
+
+    });
+
+    card.addEventListener("mouseleave", () => {
+
+        card.style.transform =
+        "perspective(1000px) rotateX(0deg) rotateY(0deg)";
+
+    });
 
 });
 
-card.addEventListener("mouseleave",()=>{
+// ================================
+// ZOOM NAS IMAGENS
+// ================================
 
-card.style.transform =
-"perspective(1000px) rotateX(0) rotateY(0)";
+const imagens =
+document.querySelectorAll(".imagens img");
+
+imagens.forEach(img => {
+
+    img.addEventListener("mouseenter", () => {
+
+        img.style.transform =
+        "scale(1.05)";
+
+    });
+
+    img.addEventListener("mouseleave", () => {
+
+        img.style.transform =
+        "scale(1)";
+
+    });
 
 });
 
+// ================================
+// ANO AUTOMÁTICO NO FOOTER
+// ================================
+
+const footer =
+document.querySelector("footer");
+
+if (footer) {
+
+    console.log(
+        `Projeto carregado - ${new Date().getFullYear()}`
+    );
+
+}
+
+// ================================
+// LOADING DA PÁGINA
+// ================================
+
+window.addEventListener("load", () => {
+
+    document.body.classList.add("loaded");
+
 });
 
-// CONSOLE
+// ================================
+// MENSAGEM NO CONSOLE
+// ================================
 
 console.log(
 "%c🌱 Agro Sustentável - Agrinho 2026",
@@ -333,6 +446,5 @@ console.log(
 
 console.log(
 "%cProjeto desenvolvido por Alice Sorbara",
-"color:#4CAF50;"
+"color:#4CAF50;font-size:14px;"
 );
-```
