@@ -447,4 +447,37 @@ console.log(
 console.log(
 "%cProjeto desenvolvido por Alice Sorbara",
 "color:#4CAF50;font-size:14px;"
+    // ================================
+// QUIZ INTERATIVO
+// ================================
+
+let pontos = 0;
+
+function responder(botao, correta){
+
+const questao =
+botao.parentElement;
+
+if(questao.dataset.respondida)
+return;
+
+questao.dataset.respondida =
+"sim";
+
+if(correta){
+
+botao.classList.add("correto");
+
+pontos++;
+
+}else{
+
+botao.classList.add("errado");
+
+}
+
+document.getElementById("pontuacao")
+.innerText = pontos;
+
+}
 );
